@@ -15,7 +15,7 @@ RUN apt-get update; apt-get install -y \
     rsyslog
 
 RUN postconf -e smtpd_recipient_restrictions="permit_mynetworks"; \
-    postconf -e smtpd_helo_restrictions="permit_mynetworks, reject_invalid_hostname, reject_non_fqdn_hostname"; \
+    postconf -e smtpd_helo_restrictions="permit_mynetworks, reject_invalid_hostname"; \
     postconf -e milter_default_action="accept"; \
     postconf -e milter_protocol="2"; \
     postconf -e smtpd_milters="inet:localhost:8891"; \
