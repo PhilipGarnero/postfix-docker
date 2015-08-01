@@ -20,6 +20,8 @@ RUN postconf -e smtpd_recipient_restrictions="permit_mynetworks"; \
     postconf -e milter_protocol="2"; \
     postconf -e smtpd_milters="inet:localhost:8891"; \
     postconf -e non_smtpd_milters="inet:localhost:8891"; \
+    postconf -e mynetworks_style="subnet"; \
+    postconf -# mynetworks; \
     mkdir -p /etc/postfix/dkim; \
     echo "Selector mail" >> /etc/opendkim.conf; \
     echo "KeyTable /etc/postfix/dkim/KeyTable" >> /etc/opendkim.conf; \

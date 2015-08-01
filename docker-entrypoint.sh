@@ -4,7 +4,7 @@ set -e
 
 if [ "$1" = 'start' ]; then
   postconf -e myhostname="$HOSTNAME"
-  postconf -e mydestination="\$myhostname, localhost.\$mydomain, localhost"
+  postconf -e mydestination="localhost.\$mydomain, localhost"
   postconf -e virtual_alias_domains="$DOMAINS"
 
   echo "$HOSTNAME" > /etc/mailname
